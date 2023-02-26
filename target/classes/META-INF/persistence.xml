@@ -3,5 +3,6 @@
 	<persistence-unit name="RecipeDatabase">
 		<class>model.Recipe</class>
 		<class>controller.LocalDateAttributeConverter</class>
+		<class>model.Ingredient</class>
 	</persistence-unit>
 </persistence>
