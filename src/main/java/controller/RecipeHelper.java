@@ -5,6 +5,8 @@
  */
 package controller;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -20,5 +22,10 @@ public class RecipeHelper {
 		em.persist(rec);
 		em.getTransaction().commit();
 		em.close();
+	}
+	public List<Recipe> getRecipes() {
+		EntityManager em = emfactory.createEntityManager();
+		List<Recipe> allDetails = em.createQuery("SELECT r FROM recipe r").getResultList();
+		return allDetails;
 	}
 }

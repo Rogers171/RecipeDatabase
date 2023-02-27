@@ -31,7 +31,7 @@ public class ViewRecipesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		RecipeHelper rh = new RecipeHelper();
-		List<Recipe> rl = rh.getLists();
+		List<Recipe> rl = rh.getRecipes();
 		request.setAttribute("allLists", rl);
 		if(rl.isEmpty()){
 			request.setAttribute("allLists", " ");
