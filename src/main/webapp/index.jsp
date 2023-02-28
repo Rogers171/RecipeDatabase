@@ -34,5 +34,8 @@
 	</form><br/>
 	<a href = "viewRecipesServlet">View the List of Recipes</a>
 	
+	<h2>Ingredient Master List</h2>
+	<p> You can view the master list of pizza ingredients here: </p>
+	<a href = "viewIngredientsServlet">View the List of Ingredients</a>
 </body>
 </html>
