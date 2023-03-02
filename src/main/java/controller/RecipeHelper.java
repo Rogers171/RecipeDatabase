@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import model.Ingredient;
 import model.Recipe;
 
 public class RecipeHelper {
@@ -28,4 +29,10 @@ public class RecipeHelper {
 		List<Recipe> allDetails = em.createQuery("SELECT r FROM recipe r").getResultList();
 		return allDetails;
 	}
+	
+	//This should take an ingredient and add it to the ingredient list of the recipe
+	public void insertNewIngredientDetails(Recipe r, Ingredient i) {
+		r.getIngredientList().add(i);
+	}
+
 }
