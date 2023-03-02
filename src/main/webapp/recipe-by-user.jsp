@@ -7,7 +7,7 @@
 <title>Recipes</title>
 </head>
 <body>
-<form method = "post" action = "recipeNavigationServlet">
+<form method = "post" action = "listNavigationServlet">
 <table>
 <c:forEach items="${requestScope.allRecipes}" var="currentRecipe">
 <tr>
