@@ -78,6 +78,11 @@ public class Recipe {
 		this.dateAdded = dateAdded;
 		this.ingredientList = ingredientList;
 	}
+	
+	public Recipe(String recipeName) {
+		super();
+		this.recipeName = recipeName;
+	}
 	@Override
 	public String toString() {
 		return "Recipe [id=" + id + ", recipeName=" + recipeName + ", dateAdded=" + dateAdded + "]";

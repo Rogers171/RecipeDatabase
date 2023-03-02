@@ -27,7 +27,7 @@ public class IngredientHelper {
 	 }
 	 public List<Ingredient> showAllItems() {
 		 EntityManager em = emfactory.createEntityManager();
-		 List<Ingredient> allItems = em.createQuery("SELECT i FROM ingredient i").getResultList();
+		 List<Ingredient> allItems = em.createQuery("SELECT i FROM Ingredient i").getResultList();
 		 return allItems;
 	 }
 	 public void deleteItem(Ingredient toDelete) {

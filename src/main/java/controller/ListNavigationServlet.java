@@ -43,7 +43,7 @@ public class ListNavigationServlet extends HttpServlet {
 		
 		if (act == null) {
 			getServletContext().getRequestDispatcher("/viewRecipesServlet").forward(request, response);
-		} else if (act.equals("add ingredient to recipe")) {
+		} else if (act.equals("add")) {
 			try {
 				Recipe tempRec = new Recipe(request.getParameter("recipe")); // I need to get the value from the radio buttons of Ingredients-to-recipe.jsp, then convert it into a recipe object
 				Ingredient tempIng = new Ingredient(request.getParameter("ingredient"));

@@ -26,7 +26,7 @@ public class RecipeHelper {
 	}
 	public List<Recipe> getRecipes() {
 		EntityManager em = emfactory.createEntityManager();
-		List<Recipe> allDetails = em.createQuery("SELECT r FROM recipe r").getResultList();
+		List<Recipe> allDetails = em.createQuery("SELECT r FROM Recipe r").getResultList();
 		return allDetails;
 	}
 	

@@ -19,7 +19,7 @@
 	</c:forEach>
 	</table>
 	<input type = "submit" value = "edit" name="doThisToItem">
-	<input type = "submit" value = "delte" name="doThisToItem">
+	<input type = "submit" value = "delete" name="doThisToItem">
 	<input type = "submit" value = "add" name = "doThisToItem">
 </form>
 </body>

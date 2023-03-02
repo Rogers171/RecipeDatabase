@@ -1,11 +1,15 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.Ingredient;
 
 /**
  * Servlet implementation class ViewIngredientsServlet
@@ -29,11 +33,12 @@ public class ViewIngredientsServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		IngredientHelper dao = new IngredientHelper();
-		request.setAttribute("allItems",  dao.showAllItems());
-		String path = "/ingredient-list.jsp";
+		List<Ingredient> il = dao.showAllItems();
+		request.setAttribute("allItems",  il);
 		if (dao.showAllItems().isEmpty()){
-			path="/index.html";
+			request.setAttribute("allRecipes", " ");
 		}
+		getServletContext().getRequestDispatcher("/ingredient-list.jsp").forward(request, response);
 	}
 
 	/**

@@ -27,14 +27,18 @@ public class AddIngredientServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
-		String amount = request.getParameter("amount");
+		String name = request.getParameter("ingredientName");
+		String amount = request.getParameter("ingredientAmount");
 		
 		Ingredient i = new Ingredient(name,amount);
 		IngredientHelper dao = new IngredientHelper();
 		dao.insertItem(i);
 		
-		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/ingredients-to-recipe.jsp").forward(request, response);
 	}
-
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doPost(request, response);
+	}
 }

@@ -59,6 +59,11 @@ public class Ingredient {
 		this.name = name;
 		this.amount = amount;
 	}
+	
+	public Ingredient(String name) {
+		super();
+		this.name = name;
+	}
 	@Override
 	public String toString() {
 		return "Ingredient [id=" + id + ", name=" + name + ", amount=" + amount + "]";

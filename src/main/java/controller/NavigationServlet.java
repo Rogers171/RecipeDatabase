@@ -60,7 +60,7 @@ public class NavigationServlet extends HttpServlet {
 				System.out.println("Forgot to select an ingredient");
 			}
 		} else if (act.equals("add")) {
-			path = "/index.html"; //Update this once we figure out what to do with the adding ingredients
+			path = "/new-ingredient.jsp"; //Update this once we figure out what to do with the adding ingredients
 		}
 		
 		getServletContext().getRequestDispatcher(path).forward(request, response);

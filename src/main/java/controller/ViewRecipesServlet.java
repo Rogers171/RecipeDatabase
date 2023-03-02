@@ -32,9 +32,9 @@ public class ViewRecipesServlet extends HttpServlet {
 		
 		RecipeHelper rh = new RecipeHelper();
 		List<Recipe> rl = rh.getRecipes();
-		request.setAttribute("allLists", rl);
+		request.setAttribute("allRecipes", rl);
 		if(rl.isEmpty()){
-			request.setAttribute("allLists", " ");
+			request.setAttribute("allRecipes", " ");
 			}
 		getServletContext().getRequestDispatcher("/recipe-by-user.jsp").forward(request, response);
 	}

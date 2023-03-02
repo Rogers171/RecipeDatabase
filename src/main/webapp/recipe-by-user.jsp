@@ -27,7 +27,7 @@
 <input type = "submit" value = "delete" name="doThisToList">
 <input type="submit" value = "add" name = "doThisToList">
 </form>
-<a href="addIngredientServlet">Create a new ingredient</a>
+<a href="new-ingredient.jsp">Create a new ingredient</a><br >
 <a href="index.html">Check the lists/add a new Recipe</a>
 </body>
 </html>
