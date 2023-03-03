@@ -4,5 +4,6 @@
 		<class>model.Recipe</class>
 		<class>controller.LocalDateAttributeConverter</class>
 		<class>model.Ingredient</class>
+		<class>model.ListDetails</class>
 	</persistence-unit>
 </persistence>

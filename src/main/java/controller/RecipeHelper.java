@@ -9,7 +9,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import model.Ingredient;
 import model.Recipe;
@@ -30,9 +32,22 @@ public class RecipeHelper {
 		return allDetails;
 	}
 	
-	//This should take an ingredient and add it to the ingredient list of the recipe
-	public void insertNewIngredientDetails(Recipe r, Ingredient i) {
-		r.getIngredientList().add(i);
+	public Recipe findRecipe(String nameToLookUp) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<Recipe> typedQuery = em.createQuery("select sh from Recipe sh where sh.recipeName = :selectedName", Recipe.class);
+		typedQuery.setParameter("selectedName", nameToLookUp);
+		typedQuery.setMaxResults(1);
+		
+		Recipe foundRecipe;
+		try {
+			foundRecipe = typedQuery.getSingleResult();
+		} catch (NoResultException ex) {
+			foundRecipe = new Recipe(nameToLookUp);
+		}
+		em.close();
+		
+		return foundRecipe;
 	}
 
 }
