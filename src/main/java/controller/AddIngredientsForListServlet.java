@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class AddIngredientsForListSErvlet
  */
-@WebServlet("/addIngredientsForListSErvlet")
+@WebServlet("/addIngredientsForListServlet")
 public class AddIngredientsForListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,7 +27,7 @@ public class AddIngredientsForListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		IngredientHelper dao = new IngredientHelper());
+		IngredientHelper dao = new IngredientHelper();
 		
 		request.setAttribute("allItems", dao.showAllItems());
 		
@@ -35,7 +35,7 @@ public class AddIngredientsForListServlet extends HttpServlet {
 			request.setAttribute("allItems", " ");
 		}
 		
-		getServletContext().getRequestDispatcher("/new-list.jsp).forward(request, response);"
+		getServletContext().getRequestDispatcher("/new-list.jsp").forward(request, response);
 	}
 
 	/**

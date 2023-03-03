@@ -39,7 +39,7 @@ public class ViewAllListsServlet extends HttpServlet {
 			request.setAttribute("allLists",  " ");
 		}
 		
-		getServletContext().getRequestDispatcher("/list-by-user.jsp").forward(request,  response);;d
+		getServletContext().getRequestDispatcher("/list-by-user.jsp").forward(request,  response);
 	}
 
 	/**

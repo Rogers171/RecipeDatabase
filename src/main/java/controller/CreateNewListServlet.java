@@ -18,13 +18,13 @@ import model.Recipe;
  * Servlet implementation class CreteNewListServlet
  */
 @WebServlet("/creteNewListServlet")
-public class CreteNewListServlet extends HttpServlet {
+public class CreateNewListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreteNewListServlet() {
+    public CreateNewListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -54,7 +54,7 @@ public class CreteNewListServlet extends HttpServlet {
 		ListDetails sld = new ListDetails(listName, recipe);
 		
 		sld.setIngredientList(selectedItemsInList);
-		ListDetailsHelper slh = new ListDetailsHelper());
+		ListDetailsHelper slh = new ListDetailsHelper();
 		slh.insertNewListDetails(sld);
 		
 		System.out.println("Success!");
