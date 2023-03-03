@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Ingredient;
+import model.ListDetails;
 import model.Recipe;
 
 /**
@@ -38,24 +39,45 @@ public class ListNavigationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RecipeHelper dao = new RecipeHelper();
+		ListDetailsHelper dao = new ListDetailsHelper();
 		String act = request.getParameter("doThisToList");
 		
-		if (act == null) {
-			getServletContext().getRequestDispatcher("/viewRecipesServlet").forward(request, response);
-		} else if (act.equals("add")) {
+		if(act == null) {
+			getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
+			
+		} else if (act.equals("delete")) {
 			try {
-				Recipe tempRec = new Recipe(request.getParameter("recipe")); // I need to get the value from the radio buttons of Ingredients-to-recipe.jsp, then convert it into a recipe object
-				Ingredient tempIng = new Ingredient(request.getParameter("ingredient"));
-				RecipeHelper rh = new RecipeHelper();
-				
-				rh.insertNewIngredientDetails(tempRec, tempIng);
-				
+				Integer tempId = Integer.parseInt(request.getParameter("id"));
+				ListDetails listToDelete = dao.searchForListDetailsById(tempId);
+				dao.deleteList(listToDelete);
 			} catch (NumberFormatException e) {
-				getServletContext().getRequestDispatcher("/addIngredientsForRecipeServlet").forward(request,response);
+				System.out.println("Forgot to click a button");
+			} finally {
+				getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
+			}
+		} else if (act.equals("edit")) {
+			try {
+				Integer tempId = Integer.parseInt(request.getParameter("id"));
+				ListDetails listToEdit = dao.searchForListDetailsById(tempId);
+				request.setAttribute("listToEdit",  listToEdit);
+				
+				IngredientHelper daoForIngredients = new IngredientHelper();
+				
+				request.setAttribute("allItems",  daoForIngredients.showAllItems());
+				
+				if(daoForIngredients.showAllItems().isEmpty()) {
+					request.setAttribute("all items", " ");
+				}
+				
+				getServletContext().getRequestDispatcher("/edit-list.jsp").forward(request, response);
+			} catch (NumberFormatException e) {
+				getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
 			}
 			
+		} else if (act.equals("add")) {
+			getServletContext().getRequestDispatcher("/new-list.html").forward(request, response);
 		}
+			
 	}
 
 }
