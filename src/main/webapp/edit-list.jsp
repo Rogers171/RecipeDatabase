@@ -12,7 +12,7 @@
 	<input type = "hidden" name = "id" value= "${listToEdit.id}">
 	List Name: <input type = "text" name = "listName" value="${listToEdit.listName}"><br />
 	
-	Recipe Name: <input type = "text" name = "recipeName" value="${listToEdit.shopper.shopperName}"><br />
+	Recipe Name: <input type = "text" name = "recipeName" value="${listToEdit.recipe}"><br />
 	
 	Available Ingredients: <br />
 	<select name="allItemsToAdd" multiple size="6">

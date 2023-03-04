@@ -14,7 +14,7 @@
 	
 	Available Ingredients:<br />
 	<select name= "allItemsToAdd" multiple size="6:">
-	<c:forEach items="${requestScope.allItems}" var = "currentitem">
+	<c:forEach items="${requestScope.allItemsToAdd}" var = "currentitem">
 		<option value = "${currentitem.id }">${currentitem.ingredient} | ${currentitem.amount}</option>
 	</c:forEach>
 	</select> 

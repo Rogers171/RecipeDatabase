@@ -34,7 +34,7 @@ public class AddIngredientServlet extends HttpServlet {
 		IngredientHelper dao = new IngredientHelper();
 		dao.insertItem(i);
 		
-		getServletContext().getRequestDispatcher("/ingredients-to-recipe.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
