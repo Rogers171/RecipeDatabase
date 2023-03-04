@@ -8,12 +8,12 @@
 <title>Create a new List</title>
 </head>
 <body>
-	<form action = "createNewListSErvlet" method="post">
+	<form action = "createNewListServlet" method="post">
 	ListName: <input type = "text" name = "listName">
 	Recipe Name: <input type = "text" name = "recipeName"><br />
 	
 	Available Ingredients:<br />
-	<select name= "allItemsToADd" multiple size="6:">
+	<select name= "allItemsToAdd" multiple size="6:">
 	<c:forEach items="${requestScope.allItems}" var = "currentitem">
 		<option value = "${currentitem.id }">${currentitem.ingredient} | ${currentitem.amount}</option>
 	</c:forEach>

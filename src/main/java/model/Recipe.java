@@ -25,7 +25,7 @@ public class Recipe {
 	private int id;
 	private String recipeName;
 	private LocalDate dateAdded;
-	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.MERGE.PERSIST, fetch=FetchType.EAGER)
 	private List<Ingredient> ingredientList;
 	
 	//Getters & Setters

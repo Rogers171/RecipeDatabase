@@ -17,7 +17,7 @@ import model.Recipe;
 /**
  * Servlet implementation class CreteNewListServlet
  */
-@WebServlet("/creteNewListServlet")
+@WebServlet("/createNewListServlet")
 public class CreateNewListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -60,7 +60,7 @@ public class CreateNewListServlet extends HttpServlet {
 		System.out.println("Success!");
 		System.out.println(sld.toString());
 		
-		getServletContext().getRequestDispatcher("/viewAllListsSErvlet").forward(request,  response);
+		getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request,  response);
 	}
 
 	/**

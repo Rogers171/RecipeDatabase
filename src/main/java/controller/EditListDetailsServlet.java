@@ -56,7 +56,7 @@ public class EditListDetailsServlet extends HttpServlet {
 		Recipe newRecipe = rh.findRecipe(recipeName);
 		
 		try {
-			String[] selectedItems = request.getParameterValues("allItemsToAddd");
+			String[] selectedItems = request.getParameterValues("allItemsToAdd");
 			List<Ingredient> selectedItemsInList = new ArrayList<Ingredient>();
 			
 			for (int i = 0; i <selectedItems.length; i++) {

@@ -21,7 +21,7 @@ public class ListDetails {
 	@GeneratedValue
 	private int id;
 	private String listName;
-	@OneToOne (cascade=CascadeType.MERGE) //One recipe would have one list of ingredients
+	@OneToOne (cascade=CascadeType.PERSIST) //One recipe would have one list of ingredients
 	private Recipe recipe;
 	@OneToMany(cascade=CascadeType.MERGE, fetch =FetchType.EAGER)
 	private List<Ingredient> ingredientList;
